@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	} 
+ 
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "MAVEN"
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                //git branch: 'master', credentialsId: 'GIT_HUB_CREDENTIALS', url: //'https://github.com/LoksaiETA/Java-mvn-app2.git'
+				git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+                // Run Maven on a Unix agent.
+                //sh './gradle wrapper'
+                //sh './gradlew build'
+                sh "mvn -Dmaven.test.failure.ignore=true 
+}
+}
+From Kajal Rani to Everyone 11:12 AM
+we're back
+From Loksai to Everyone 11:49 AM
+https://labs.play-with-k8s.com/
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
+https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html

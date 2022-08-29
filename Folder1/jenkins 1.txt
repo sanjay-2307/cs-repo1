@@ -1,0 +1,37 @@
+rZqjKO2I5RAijVuQogzYOk41
+
+Job1 : Stages CI
+checkout --> Build --> Test --> Deployment{QA} 
+
+Job2 : Stages
+--> QA Testing --> Deployment{UAT}
+
+Job3 : Stages
+--> UAT Testing --> Deployment{PROD}
+
+SMTP Server: smtp.office365.com
+SMTP Port : 587
+Credentials: Add Admin email id & PSWD
+Check TLS
+Click Advance LinK:
+
+Dmail.smtp.starttls.enable=true
+
+Tasks:
+
+1. Use VSCode to pull the GITHUB Appln. Repo
+2. Do the code changes
+3. Save and Commit the code Changes.
+4. Trigger the Jenkins Pipeline to perform Automated Build and Create Artifact.
+5. Notify the status thru. slack and E-mail.
+
+7. Install Docker on Jenkins Node.
+
+
+
+Login to gmail
+go to setting
+security
+
+Enable 2 ways auth.
+Create App password / token

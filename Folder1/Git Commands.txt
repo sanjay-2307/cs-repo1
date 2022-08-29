@@ -1,0 +1,115 @@
+GIT
+
+Stash current work:
+$ git stash
+
+Saving stashes with a message: 
+$ git stash save "<Stashing Message>"
+
+Check the stored stashes: 
+$ git stash list
+
+Re-apply the previous commits: 
+$ git stash pop
+
+Delete a most recent stash from the queue: 
+$ git stash drop
+
+Delete all the available stashes at once: 
+$ git stash clear
+
+Stash work on a separate branch: 
+$ git stash branch <branch name>
+
+Aug 02
+
+GIT 
+git : 
+init, 
+add
+commit
+status
+log 
+stash
+config
+reset
+switch
+rm
+rm --cached
+gitignore
+git ls-files
+git revert
+diff
+
+GIT Branch
+git branch <b.name>
+git switch 
+git checkout
+git merge
+
+GIT FLOW INIT :
+
+  500  cd SCM-Sandbox/
+  501  mkdir cods
+  502  cd cods
+  503  ls
+  504  ls
+  505  git flow init
+  506  git flow feature start feature1
+  507  echo "rec1" >> s1.txt
+  508  git add .
+  509  git commit -m "initial commit"
+  510  git flow feature finish feature1
+  511  git branch
+  512  ls
+  513  git log --oneline
+  514  git switch master
+  515  ls
+  516  git switch develop
+  517  ls
+  518  git flow release start rel1.0
+  519  git branch
+  520  git log --oneline
+  521  git flow release finish rel1.0
+  522  ls
+  523  git switch master
+  524  ls
+  525  git tags
+  526  git tag
+  527  git branch
+
+GIT PULL & FETCH
+
+531  mkdir cds1
+  532  cd cds1
+  533  git clone https://github.com/LoksaiETA/TestRepo1.git
+  534  git log
+  535  ls
+  536  cd TestRepo1/
+  537  git log
+  538  git remote -v
+  539  ls
+  540  echo "rec1" >> a1.txt
+  541  git add .
+  542  git commit -m "added a1.txt"
+  543  git log
+  544  git push origin master
+  545  git branch
+  546  git branch --all
+  547  git branch -a
+  548  git log --oneline
+  549  git log origin/master --oneline
+  550  git fetch origin/master
+  551  git fetch origin master
+  552  ls
+  553  git log --oneline
+  554  git log origin/master --oneline
+  555  ls
+  556  git branch
+  557  git branch -a
+  558  git merge origin/master
+  559  ls
+  560  git pull origin master
+  561  ls
+  562  history
+
