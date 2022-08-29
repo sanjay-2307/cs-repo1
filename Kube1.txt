@@ -1,0 +1,36 @@
+sudo kubeadm init --apiserver-advertise-address=172.31.46.16 --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem
+
+
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+
+kubeadm join 172.31.46.16:6443 --token lh6b6h.tre2jbzryrrow807 --discovery-token-ca-cert-hash sha256:b500b699267140db87569376f86c635540ac614b6b0f1f193c93fb8a82e8c676
+
+
+kubeadm join 172.31.46.16:6443 --token lh6b6h.tre2jbzryrrow807 \
+        --discovery-token-ca-cert-hash sha256:b500b699267140db87569376f86c635540ac614b6b0f1f193c93fb8a82e8c676
+
+
+
+v1.21.3"
+
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
+
+# Set SELinux in permissive mode (effectively disabling it)
+sudo setenforce 0
+sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+
+sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+
+sudo systemctl enable --now kubelet
